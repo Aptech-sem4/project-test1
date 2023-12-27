@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chụp ảnh từ camera</title>
+    <script type="text/javascript">
+        function captureImage() {
+            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+                alert('Thiết bị của bạn không hỗ trợ chụp ảnh từ camera.');
+                return;
+            }
+
+            var video = document.getElementById('video');
+            var canvas = document.getElementById('canvas');
+            var context = canvas.getContext('2d');
+
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch(function(err) {
+                    console.log("An error occurred: " + err);
+                    alert('Không thể truy cập camera của bạn.');
+                });
+
+            document.getElementById('snap').addEventListener('click', function() {
+                context.drawImage(video, 0, 0, 640, 480);
+                var dataURL = canvas.toDataURL('image/png'); // Dữ liệu ảnh ở dạng base64
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/upload_from_camera', true); // Gửi dữ liệu ảnh về server
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({ image: dataURL }));
+            });
+        }
+    </script>
+</head>
+<body onload="captureImage()">
+    <h1>Chụp ảnh từ camera</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+    <button id="snap">Chụp ảnh</button>
+    <canvas id="canvas" style="display: none;"></canvas>
+</body>
+</html>
