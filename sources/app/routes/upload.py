@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request,jsonify
+from flask import Blueprint, render_template, request,jsonify, redirect
 from werkzeug.utils import secure_filename
 import base64, os, secrets
 from app.models.img_process import process_image
+from datetime import datetime
 
 upload_bp = Blueprint('upload', __name__)
 
@@ -19,19 +20,29 @@ def upload_file():
         file = request.files['file']
 
         if file.filename == '':
-            return 'No selected file'
+            return redirect(request.url) 
 
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
+            current_time = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+
 
             random_string = secrets.token_hex(8)
-            new_filename = random_string + '_' + filename
+            new_filename = current_time + '_' + random_string + '_' + filename
             file.save(os.path.join('app/static/uploads', new_filename))
             
             # Gọi model AI để xử lý ảnh
             process_image(file)
 
-            return 'File uploaded successfully'
+            res = {
+                'message': 'File uploaded successfully',
+                'data' : {
+                    'type': '',
+                    'file_name' : new_filename
+                }
+            }
+
+            return jsonify(res)
     
     return render_template('upload.html')
 
@@ -47,12 +58,22 @@ def upload_from_camera():
         img_data = base64.b64decode(image_data)
         
         # Lưu ảnh vào thư mục UPLOAD_FOLDER
-        filename = 'camera_image.png'  # Đặt tên file
-        with open(os.path.join('app/static/uploads', filename), 'wb') as f:
+        current_time = datetime.now().strftime("%Y-%m-%d_%H%M%S")
+        random_string = secrets.token_hex(8)
+        new_filename = 'camera_image' + '_' + current_time + '_' + random_string + '.jpg'
+        with open(os.path.join('app/static/uploads', new_filename), 'wb') as f:
             f.write(img_data)
 
         # Xử lý ảnh (nếu cần)
         # process_image(img_data)
 
-        return 'Image uploaded successfully'
+        res = {
+                'message': 'File uploaded successfully',
+                'data' : {
+                    'type': '',
+                    'file_name' : new_filename
+                }
+            }
+        
+        return jsonify(res)
     return 'Invalid request'
