@@ -1,14 +1,17 @@
 from flask import Blueprint, render_template, jsonify
 import os
 from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import load_model
+
 # # from tensorflow.keras.applications import EfficientNetB0
 # import numpy as np
-import pickle
+# import pickle
 
 # predict_bp = Blueprint('predict', __name__)
 
 MODEL_PATH = os.path.join('sources', 'app', 'models', 'model_EfficientnetB0.h5')
-mymodel = pickle.load(open(MODEL_PATH,'rb')) 
+mymodel = load_model(MODEL_PATH)
+
 # # Load pre-trained model
 # model = EfficientNetB0(weights=MODEL_PATH)
     
