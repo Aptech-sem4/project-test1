@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request,jsonify, redirect
 from werkzeug.utils import secure_filename
 import base64, os, secrets
-from app.models.img_process import process_image
+# from app.models.img_process import process_image
 from datetime import datetime
 
 upload_bp = Blueprint('upload', __name__)
@@ -32,7 +32,7 @@ def upload_file():
             file.save(os.path.join('app/static/uploads', new_filename))
             
             # Gọi model AI để xử lý ảnh
-            process_image(new_filename)
+            # process_image(new_filename)
 
             res = {
                 'message': 'File uploaded successfully',
