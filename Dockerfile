@@ -8,5 +8,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-CMD ["python", "app/index.py"]
+CMD ["python", "sources/run.py"]
 
