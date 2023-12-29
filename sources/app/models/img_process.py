@@ -7,7 +7,7 @@ import pickle
 
 # predict_bp = Blueprint('predict', __name__)
 
-MODEL_PATH = os.path.join('app', 'models', 'model_EfficientnetB0.h5')
+MODEL_PATH = os.path.join('sources', 'app', 'models', 'model_EfficientnetB0.h5')
 mymodel = pickle.load(open(MODEL_PATH,'rb')) 
 # # Load pre-trained model
 # model = EfficientNetB0(weights=MODEL_PATH)
