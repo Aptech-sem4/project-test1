@@ -32,7 +32,7 @@ def upload_file():
             file.save(os.path.join('app/static/uploads', new_filename))
             
             # Gọi model AI để xử lý ảnh
-            process_image(file)
+            process_image(new_filename)
 
             res = {
                 'message': 'File uploaded successfully',

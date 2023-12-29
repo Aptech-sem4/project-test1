@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, jsonify
 import os
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications import EfficientNetB0
