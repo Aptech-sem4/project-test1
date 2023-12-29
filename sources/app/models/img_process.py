@@ -9,7 +9,7 @@ from tensorflow.keras.models import load_model
 
 # predict_bp = Blueprint('predict', __name__)
 
-MODEL_PATH = os.path.join('./sources/app/models', 'model_EfficientnetB0.h5')
+MODEL_PATH = os.path.join('./app/models', 'model_EfficientnetB0.h5')
 mymodel = load_model(MODEL_PATH)
 
 # # Load pre-trained model

@@ -2,10 +2,10 @@
 docker build --no-cache -t prj_sem4 .
 
 # Run container
-docker run -d -p 80:5000 prj_sem4
+docker run -d -p 8080:5000 prj_sem4
 
 # Docker
-docker exec -it aec506454e3e /bin/bash
+docker exec -it b9990a5e821a /bin/bash
 
 # Run Flask
 cd app/
