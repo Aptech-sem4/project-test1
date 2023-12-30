@@ -29,7 +29,12 @@ def upload_file():
 
             random_string = secrets.token_hex(8)
             new_filename = current_time + '_' + random_string + '_' + filename
-            file.save(os.path.join('app/static/uploads', new_filename))
+
+            # Lấy đường dẫn tuyệt đối của file hiện tại
+            current_file_path = os.path.abspath(__file__)
+            # Lấy thư mục chứa file hiện tại
+            current_directory = os.path.dirname(current_file_path)
+            file.save(os.path.join(current_directory, new_filename))
             
             # Gọi model AI để xử lý ảnh
             res_predict = process_image(new_filename)
@@ -62,7 +67,12 @@ def upload_from_camera():
         current_time = datetime.now().strftime("%Y-%m-%d_%H%M%S")
         random_string = secrets.token_hex(8)
         new_filename = 'camera_image' + '_' + current_time + '_' + random_string + '.jpg'
-        with open(os.path.join('app/static/uploads', new_filename), 'wb') as f:
+        
+        # Lấy đường dẫn tuyệt đối của file hiện tại
+        current_file_path = os.path.abspath(__file__)
+        # Lấy thư mục chứa file hiện tại
+        current_directory = os.path.dirname(current_file_path)
+        with open(os.path.join(current_directory, new_filename), 'wb') as f:
             f.write(img_data)
 
         # Xử lý ảnh (nếu cần)
