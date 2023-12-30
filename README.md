@@ -2,7 +2,7 @@
 docker build --no-cache -t prj_sem4 .
 
 # Run container
-docker run -d -p 8080:5000 prj_sem4
+docker run -d --network=host -v /home/is_eman/test/app_test/project-test1:/sites/aptech-s4 prj_sem4
 
 # Docker
 docker exec -it b9990a5e821a /bin/bash
