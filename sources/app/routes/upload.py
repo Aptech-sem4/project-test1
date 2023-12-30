@@ -74,7 +74,7 @@ def upload_from_camera():
         
         # Lấy đường dẫn tuyệt đối của file hiện tại
         folder_name = '/app/static/uploads'
-        absolute_path = os.path.join(app.root_path, folder_name)
+        absolute_path = os.path.join(current_app.root_path, folder_name)
         
         with open(os.path.join(absolute_path, new_filename), 'wb') as f:
             f.write(img_data)
