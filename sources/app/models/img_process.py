@@ -9,7 +9,13 @@ from tensorflow.keras.models import load_model
 
 # predict_bp = Blueprint('predict', __name__)
 
-MODEL_PATH = os.path.join('./app/models', 'model_EfficientnetB0.h5')
+# Lấy đường dẫn tuyệt đối của file hiện tại
+current_file_path = os.path.abspath(__file__)
+# Lấy thư mục chứa file hiện tại
+current_directory = os.path.dirname(current_file_path)
+
+MODEL_PATH = os.path.join(current_directory, 'model_EfficientnetB0.h5')
+
 mymodel = load_model(MODEL_PATH)
 
 # # Load pre-trained model
