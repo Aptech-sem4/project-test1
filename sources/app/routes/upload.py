@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, request,jsonify, redirect
 from werkzeug.utils import secure_filename
 import base64, os, secrets
-from app.models.img_process import process_image
+from flask import current_app
+
+# from app.models.img_process import process_image
 from datetime import datetime
 
 upload_bp = Blueprint('upload', __name__)
@@ -32,13 +34,15 @@ def upload_file():
 
             # Lấy đường dẫn tuyệt đối của file hiện tại
             folder_name = '/app/static/uploads'
-            absolute_path = os.path.join(app.root_path, folder_name)
+            root_path = current_app.root_path
+            print(root_path)
+            absolute_path = os.path.join(root_path, folder_name)
 
             file.save(os.path.join(absolute_path, new_filename))
             
             # Gọi model AI để xử lý ảnh
-            res_predict = process_image(new_filename)
-            print(res_predict)
+            # res_predict = process_image(new_filename)
+            # print(res_predict)
 
             res = {
                 'message': 'File uploaded successfully',
@@ -77,8 +81,9 @@ def upload_from_camera():
 
         # Xử lý ảnh (nếu cần)
         # process_image(img_data)
-        res_predict = process_image(new_filename)
-        print(res_predict)
+
+        # res_predict = process_image(new_filename)
+        # print(res_predict)
 
         res = {
                 'message': 'File uploaded successfully',
