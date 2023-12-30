@@ -32,12 +32,13 @@ def upload_file():
             file.save(os.path.join('app/static/uploads', new_filename))
             
             # Gọi model AI để xử lý ảnh
-            # process_image(new_filename)
+            res_predict = process_image(new_filename)
+            print(res_predict)
 
             res = {
                 'message': 'File uploaded successfully',
                 'data' : {
-                    'type': '',
+                    'type': res_predict,
                     'file_name' : new_filename
                 }
             }
@@ -66,11 +67,13 @@ def upload_from_camera():
 
         # Xử lý ảnh (nếu cần)
         # process_image(img_data)
+        res_predict = process_image(new_filename)
+        print(res_predict)
 
         res = {
                 'message': 'File uploaded successfully',
                 'data' : {
-                    'type': '',
+                    'type': res_predict,
                     'file_name' : new_filename
                 }
             }
