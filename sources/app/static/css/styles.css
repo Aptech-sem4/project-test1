@@ -43,7 +43,7 @@
 .wapper-body{
     margin: 8vh auto;
     width: 50vh;
-    height: 80vh;
+    min-height: 80vh;
     border: 1px solid #dcdcdc;
     border-radius: 12px;
     box-shadow: 3px 4px 10px 0px #dedede;
@@ -253,6 +253,7 @@
     width: 100%;
     max-width: 640px; 
     height: auto; 
+    max-height: 360px;
 }
 
 .w-camera{
@@ -283,6 +284,9 @@
     border-radius: 50px;
     width: 60px;
     height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .w-icon-res svg{

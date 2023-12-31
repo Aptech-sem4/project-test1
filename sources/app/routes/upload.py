@@ -33,16 +33,16 @@ def upload_file():
             new_filename = current_time + '_' + random_string + '_' + filename
 
             # Lấy đường dẫn tuyệt đối của file hiện tại
-            folder_name = '/app/static/uploads'
+            folder_name = '/static/uploads'
             root_path = current_app.root_path
-            print(root_path)
-            absolute_path = os.path.join(root_path, folder_name)
+            
+            absolute_path = root_path + folder_name
 
             file.save(os.path.join(absolute_path, new_filename))
             
             # Gọi model AI để xử lý ảnh
             res_predict = process_image(new_filename)
-            print(res_predict)
+            # print(res_predict)
 
             res = {
                 'message': 'File uploaded successfully',
@@ -73,8 +73,8 @@ def upload_from_camera():
         new_filename = 'camera_image' + '_' + current_time + '_' + random_string + '.jpg'
         
         # Lấy đường dẫn tuyệt đối của file hiện tại
-        folder_name = '/app/static/uploads'
-        absolute_path = os.path.join(current_app.root_path, folder_name)
+        folder_name = '/static/uploads'
+        absolute_path = root_path + folder_name
         
         with open(os.path.join(absolute_path, new_filename), 'wb') as f:
             f.write(img_data)
@@ -82,7 +82,7 @@ def upload_from_camera():
         # Xử lý ảnh (nếu cần)
         # process_image(img_data)
 
-        # res_predict = process_image(new_filename)
+        res_predict = process_image(new_filename)
         # print(res_predict)
 
         res = {
