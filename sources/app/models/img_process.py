@@ -2,6 +2,7 @@ from flask import Blueprint, render_template, jsonify
 import os
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
+from flask import current_app
 
 # # from tensorflow.keras.applications import EfficientNetB0
 # import numpy as np
@@ -22,7 +23,12 @@ mymodel = load_model(MODEL_PATH)
 # model = EfficientNetB0(weights=MODEL_PATH)
     
 def process_image(filename):
-    file_path = os.path.join('app/static/uploads', filename)
+    # Lấy đường dẫn tuyệt đối của file hiện tại
+    folder_name = '/static/uploads'
+    root_path = current_app.root_path
+    
+    absolute_path = root_path + folder_name
+    file_path = os.path.join(absolute_path, filename)
      # Load and preprocess the image
     img = image.load_img(file_path, target_size=(224, 224))
     # img_array = image.img_to_array(img)
