@@ -328,11 +328,7 @@
     .w-icon-res svg{
         width: 45px;
     }
-    
-}
 
-
-@media (max-width: 279px) {
     .wapper-body{
         height: auto;
     }
@@ -340,5 +336,11 @@
         position: unset;
         margin-top: 30px;
     }
+    
+}
+
+
+@media (max-width: 279px) {
+    
     
 }
