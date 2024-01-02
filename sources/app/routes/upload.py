@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 import base64, os, secrets
 from flask import current_app
 
-from app.models.img_process import process_image
+# from app.models.img_process import process_image
 from datetime import datetime
 
 upload_bp = Blueprint('upload', __name__)
@@ -41,7 +41,8 @@ def upload_file():
             file.save(os.path.join(absolute_path, new_filename))
             
             # Gọi model AI để xử lý ảnh
-            res_predict = process_image(new_filename)
+            # res_predict = process_image(new_filename)
+            res_predict = 'test'
             # print(res_predict)
 
             res = {
@@ -82,7 +83,7 @@ def upload_from_camera():
         # Xử lý ảnh (nếu cần)
         # process_image(img_data)
 
-        res_predict = process_image(new_filename)
+        # res_predict = process_image(new_filename)
         # print(res_predict)
 
         res = {
