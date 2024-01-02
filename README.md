@@ -12,6 +12,6 @@ docker exec -it container_id /bin/bash
 - py run.py
 
 # Requirements 
-Flask==3.0.0
-tensorflow==2.14.0
-pillow==8.4.0
+- Flask==3.0.0
+- tensorflow==2.14.0
+- pillow==8.4.0
