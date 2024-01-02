@@ -30,7 +30,11 @@ def process_image(filename):
     absolute_path = root_path + folder_name
     file_path = os.path.join(absolute_path, filename)
      # Load and preprocess the image
+    print('111111111 vao img process')
+    print(file_path)
     img = image.load_img(file_path, target_size=(224, 224))
+    print('22222 vao img process')
+    print(img)
     # img_array = image.img_to_array(img)
     # img_array = np.expand_dims(img_array, axis=0)
     # processed_img = EfficientNetB0.preprocess_input(img_array)
