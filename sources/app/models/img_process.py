@@ -3,12 +3,15 @@ import os
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import load_model
 from flask import current_app
+from app import MODEL_PATH
 
 # # from tensorflow.keras.applications import EfficientNetB0
 # import numpy as np
 # import pickle
 
 # predict_bp = Blueprint('predict', __name__)
+
+mymodel = load_model(MODEL_PATH)
 
 # # Load pre-trained model
 # model = EfficientNetB0(weights=MODEL_PATH)

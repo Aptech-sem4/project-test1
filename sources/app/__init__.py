@@ -6,6 +6,7 @@ app = Flask(__name__)
 # Thiết lập cấu hình
 app.config['UPLOAD_FOLDER'] = 'app/static/uploads'
 
+# with app.app_context():
 # Thực hiện các hoạt động yêu cầu ngữ cảnh ứng dụng ở đây
 root_path_folder = app.root_path
 # Lấy thư mục chứa file hiện tại
