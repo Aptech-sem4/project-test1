@@ -11,7 +11,7 @@ from flask import current_app
 # predict_bp = Blueprint('predict', __name__)
 
 # Lấy đường dẫn tuyệt đối của file hiện tại
-with app.app_context():
+with current_app.app_context():
     # Thực hiện các hoạt động yêu cầu ngữ cảnh ứng dụng ở đây
     root_path_folder = current_app.root_path
     # Lấy thư mục chứa file hiện tại
