@@ -5,8 +5,13 @@ docker build --no-cache -t prj_sem4 .
 docker run -d --network=host -v /home/is_eman/test/app_test/project-test1:/sites/aptech-s4 prj_sem4
 
 # Docker
-docker exec -it b9990a5e821a /bin/bash
+docker exec -it container_id /bin/bash
 
 # Run Flask
-cd app/
-flask --app index run --host=0.0.0.0 --port=80
+- cd sources/
+- py run.py
+
+# Requirements 
+Flask==3.0.0
+tensorflow==2.14.0
+pillow==8.4.0
