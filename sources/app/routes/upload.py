@@ -43,7 +43,7 @@ def upload_file():
             # Gọi model AI để xử lý ảnh
             res_predict = process_image(new_filename)
             # res_predict = 'test'
-            # print(res_predict)
+            print(res_predict)
 
             res = {
                 'message': 'File uploaded successfully',
@@ -75,6 +75,7 @@ def upload_from_camera():
         
         # Lấy đường dẫn tuyệt đối của file hiện tại
         folder_name = '/static/uploads'
+        root_path = current_app.root_path
         absolute_path = root_path + folder_name
         
         with open(os.path.join(absolute_path, new_filename), 'wb') as f:
@@ -83,8 +84,8 @@ def upload_from_camera():
         # Xử lý ảnh (nếu cần)
         # process_image(img_data)
 
-        # res_predict = process_image(new_filename)
-        # print(res_predict)
+        res_predict = process_image(new_filename)
+        print(res_predict)
 
         res = {
                 'message': 'File uploaded successfully',
