@@ -292,6 +292,49 @@
 .w-icon-res svg{
     width: 55px;
 }
+
+/* css about */
+.w-about .w-about-head{
+    text-align: center;
+}
+
+.w-about ul{
+    padding: 0;
+    margin: 0 30px;
+    list-style: circle;
+}
+
+.nav-page .w-btn-link ul li a{
+    color: #00B94F;
+}
+
+.w-laws{
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    min-height: 50vh;
+    max-width: 70vh;
+    border: 1px solid #dcdcdc;
+    border-radius: 24px;
+    margin: 15px auto;
+}
+.w-laws li{
+    margin: 5px;
+
+}
+.w-laws li a{
+    font-size: 18px;
+}
+
+.w-tips-content{
+    text-align: center;
+}
+.w-tips-content img{
+    max-width: 100%;
+}
   /* Animation */
 @keyframes ellipsisAnimation {
     0%, 100% {
@@ -336,11 +379,21 @@
         position: unset!important;
         margin-top: 30px!important;
     }
-    
+    .wapper-body .w-footer p{
+        font-size: 10px;
+    }
+    .w-footer p{
+        font-size: 10px;
+    }
 }
 
 
-@media (max-width: 279px) {
-    
+@media (min-width: 279px) {
+    .w-about{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
+    }
     
 }

@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}Help!{% endblock %}
+
+{% block content %}
+
+<div class="nav-page">
+    <div class="w-btn-link">
+        <ul>
+            <li><a href="{{ url_for('index.index') }}" title="index" rel="noopener noreferrer"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="{{ url_for('index.help') }}" title="help" rel="noopener noreferrer"><i class="fa-regular fa-circle-question"></i></a></li>
+            <li><a href="{{ url_for('index.about') }}" title="about" rel="noopener noreferrer"><i class="fa-solid fa-circle-info"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="w-tips-content">
+    <h3>Cách phân loại rác</h3>
+    <img src="{{ url_for('static', filename='imgs/tips.png') }}" alt="" srcset="">
+</div>
+
+<footer class="w-footer">
+    <img src="{{ url_for('static', filename='imgs/aptech-logo.png') }}" alt="">
+    <p>@ Copyright by Les Miserables Team </p>
+</footer>
+
+{% endblock %}

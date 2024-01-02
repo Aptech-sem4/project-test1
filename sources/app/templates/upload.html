@@ -12,7 +12,7 @@
     </div>
     <div class="w-nav-upload">
         <ul>
-            <li><a href="{{ url_for('index.index') }}" rel="noopener noreferrer"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="{{ url_for('index.index') }}" title="index" rel="noopener noreferrer"><i class="fa-solid fa-house"></i></a></li>
             <form method="POST" action="/upload" enctype="multipart/form-data" id="sendImage">
                 <input type="file" name="file" class="input-img">
                 <li><button type="submit" class="btn-classification">Classification</button></li>

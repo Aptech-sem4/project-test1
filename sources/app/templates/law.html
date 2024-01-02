@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+
+{% block title %}Help!{% endblock %}
+
+{% block content %}
+
+<div class="nav-page">
+    <div class="w-btn-link">
+        <ul>
+            <li><a href="{{ url_for('index.index') }}" title="index" rel="noopener noreferrer"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="{{ url_for('index.help') }}" title="help" rel="noopener noreferrer"><i class="fa-regular fa-circle-question"></i></a></li>
+            <li><a href="{{ url_for('index.about') }}" title="about" rel="noopener noreferrer"><i class="fa-solid fa-circle-info"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="w-help-content">
+    <p>Theo Bộ Tài nguyên và Môi trường, từ ngày 1/1/2025, phân loại chất thải rắn sinh hoạt là việc làm bắt buộc với mọi cá nhân và hộ gia đình. Đến thời điểm đó, nếu không thực hiện phân loại chất thải rắn sinh hoạt tại nguồn sẽ bị xử phạt vi phạm hành chính theo Nghị định số 45/2022/NĐ-CP ngày 7/7/2022 của Chính phủ quy định về xử phạt vi phạm hành chính trong lĩnh vực bảo vệ môi trường.</p>
+    <p>
+        Theo nghị định này, hộ gia đình, cá nhân không phân loại chất thải rắn sinh hoạt và không sử dụng bao bì chứa chất thải rắn sinh hoạt theo quy định có thể bị phạt tiền từ 500.000 - 1.000.000 đồng.
+    </p>
+    
+    <p>
+        Nghị định cũng quy định các mức xử phạt cụ thể đối với hành vi rò rỉ, thải hóa chất độc vào môi trường đất, nước; vi phạm các quy định về đưa chất thải vào lãnh thổ Việt Nam; hành vi cản trở hoạt động quản lý nhà nước, thanh tra, kiểm tra, xử phạt vi phạm hành chính về bảo vệ môi trường… Cụ thể, phạt tiền từ 100.000 đồng đến 150.000 đồng đối với hành vi vứt, thải, bỏ đầu, mẩu, tàn thuốc lá không đúng nơi quy định tại khu chung cư, thương mại, dịch vụ hoặc nơi công cộng.</p>
+
+    <p>
+        Phạt tiền từ 150.000 đồng đến 250.000 đồng đối với hành vi vệ sinh cá nhân (tiểu tiện, đại tiện) không đúng nơi quy định tại khu chung cư, thương mại, dịch vụ hoặc nơi công cộng.
+    </p>
+
+    <p>
+        Phạt tiền từ 500.000 đồng đến 1.000.000 đồng đối với hành vi vứt, thải, bỏ rác thải, đổ nước thải không đúng nơi quy định tại khu chung cư, thương mại, dịch vụ hoặc nơi công cộng.
+    </p>
+    <p>
+        Phạt tiền từ 1.000.000 đồng đến 2.000.000 đồng đối với hành vi vứt, thải, bỏ rác thải trên vỉa hè, lòng đường hoặc vào hệ thống thoát nước thải đô thị; đổ nước thải không đúng quy định trên vỉa hè, lòng đường phố; thải bỏ chất thải nhựa phát sinh từ sinh hoạt vào ao hồ, kênh rạch, sông, suối, biển…
+    </p>
+</div>
+
+<footer class="w-footer">
+    <img src="{{ url_for('static', filename='imgs/aptech-logo.png') }}" alt="">
+    <p>@ Copyright by Les Miserables Team </p>
+</footer>
+
+{% endblock %}

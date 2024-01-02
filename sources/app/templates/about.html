@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="nav-page">
+    <div class="w-btn-link">
+        <ul>
+            <li><a href="{{ url_for('index.index') }}" title="index" rel="noopener noreferrer"><i class="fa-solid fa-house"></i></a></li>
+            <li><a href="{{ url_for('index.help') }}" title="help" rel="noopener noreferrer"><i class="fa-regular fa-circle-question"></i></a></li>
+            <li><a href="{{ url_for('index.about') }}" title="about" rel="noopener noreferrer"><i class="fa-solid fa-circle-info"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<section class="w-about">
+    <h2 class="w-about-head">Les Miserables Team</h2>
+    <ul>
+        <li>
+            <h4 class="name-user">Võ Trọng Phúc</h4>
+        </li>
+        <li>
+            <h4 class="name-user">Ya Xê Chiên</h4>
+        </li>
+        <li>
+            <h4 class="name-user">Nguyễn Ngọc Duy</h4>
+        </li>
+        <li>
+            <h4 class="name-user">Trần Minh Trí</h4>
+        </li>
+    </ul>
+</section>
+
+<footer class="w-footer">
+    <img src="{{ url_for('static', filename='imgs/aptech-logo.png') }}" alt="">
+    <p>@ Copyright by Les Miserables Team </p>
+</footer>
+
+{% endblock %}
