@@ -7,7 +7,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'app/static/uploads'
 
 # Thực hiện các hoạt động yêu cầu ngữ cảnh ứng dụng ở đây
-root_path_folder = current_app.root_path
+root_path_folder = app.root_path
 # Lấy thư mục chứa file hiện tại
 current_directory = root_path_folder + '/models'
 MODEL_PATH = os.path.join(current_directory, 'model_EfficientnetB0.h5')
