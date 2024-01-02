@@ -11,9 +11,9 @@ from flask import current_app
 # predict_bp = Blueprint('predict', __name__)
 
 # Lấy đường dẫn tuyệt đối của file hiện tại
-current_file_path = os.path.abspath(__file__)
+root_path_folder = current_app.root_path
 # Lấy thư mục chứa file hiện tại
-current_directory = os.path.dirname(current_file_path)
+current_directory = root_path_folder + '/models'
 
 MODEL_PATH = os.path.join(current_directory, 'model_EfficientnetB0.h5')
 
