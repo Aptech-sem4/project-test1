@@ -11,13 +11,15 @@ from flask import current_app
 # predict_bp = Blueprint('predict', __name__)
 
 # Lấy đường dẫn tuyệt đối của file hiện tại
-root_path_folder = current_app.root_path
-# Lấy thư mục chứa file hiện tại
-current_directory = root_path_folder + '/models'
+with app.app_context():
+    # Thực hiện các hoạt động yêu cầu ngữ cảnh ứng dụng ở đây
+    root_path_folder = current_app.root_path
+    # Lấy thư mục chứa file hiện tại
+    current_directory = root_path_folder + '/models'
 
-MODEL_PATH = os.path.join(current_directory, 'model_EfficientnetB0.h5')
+    MODEL_PATH = os.path.join(current_directory, 'model_EfficientnetB0.h5')
 
-mymodel = load_model(MODEL_PATH)
+    mymodel = load_model(MODEL_PATH)
 
 # # Load pre-trained model
 # model = EfficientNetB0(weights=MODEL_PATH)
