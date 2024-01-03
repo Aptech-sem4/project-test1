@@ -77,6 +77,7 @@
 
         document.getElementById('snap').addEventListener('click', function() {
             // Set canvas size to match the video's dimensions for full-size image
+            showloading()
             canvas.width = video.videoWidth;
             canvas.height = video.videoHeight;
 
@@ -101,10 +102,12 @@
                         uploadMessage.innerHTML = response.message;
 
                         uploadMessage.classList.remove('ellipsis');
+                        hideloading()
                         // document.getElementById('resultDisplay').innerHTML = JSON.stringify(response);
                     } else {
                         // Xử lý trường hợp lỗi khi gửi request
                         console.error('Error:', xhr.status);
+                        hideloading()
                     }
                 }
             };
@@ -115,5 +118,15 @@
     $(function () {
         captureImage()
     })
+
+    function showloading() {
+        const loadingSpinner = document.getElementById('loading');
+        loadingSpinner.style.display = 'block';
+    }
+
+    function hideloading() {
+        const loadingSpinner = document.getElementById('loading');
+        loadingSpinner.style.display = 'none';
+    }
 </script>
 {% endblock %}

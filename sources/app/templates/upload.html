@@ -40,6 +40,14 @@
 
 </div>
 
+<div id="loading">
+    <div class="lds-spinner">
+        {% for i in range(12) %}
+            <div></div>
+        {% endfor %}
+    </div>
+</div>
+
 <script>
 $(function () {
     $('.w-show-img').on('click', function (e) {
@@ -83,7 +91,7 @@ document.getElementById('sendImage').addEventListener('submit', function(event) 
 
     var form = event.target;
     var formData = new FormData(form);
-
+    showloading()
     fetch(form.action, {
         method: 'POST',
         body: formData
@@ -95,14 +103,22 @@ document.getElementById('sendImage').addEventListener('submit', function(event) 
         uploadMessage.innerHTML = data.message;
 
         uploadMessage.classList.remove('ellipsis');
+        hideloading()
     })
     .catch(error => {
         console.error('Error:', error);
+        hideloading()
     });
 });
 
-// function renderImage() {
-    
-// }
+function showloading() {
+    const loadingSpinner = document.getElementById('loading');
+    loadingSpinner.style.display = 'block';
+}
+
+function hideloading() {
+    const loadingSpinner = document.getElementById('loading');
+    loadingSpinner.style.display = 'none';
+}
 </script>
 {% endblock %}
