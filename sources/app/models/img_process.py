@@ -35,7 +35,7 @@ def process_image(filename):
     # top_prediction = decoded_predictions[0][0]  # Lấy kết quả dự đoán hàng đầu
     print(predictions)
     return jsonify({
-        'predicted_class': predictions,
+        'predicted_class': "predictions",
         # 'probability': float(top_prediction[2])
     })
     # pass
