@@ -43,12 +43,12 @@ def upload_file():
             # Gọi model AI để xử lý ảnh
             res_predict = process_image(new_filename)
             # res_predict = 'test'
-            # print(res_predict)
+            print(res_predict)
 
             res = {
                 'message': 'File uploaded successfully',
                 'data' : {
-                    'type': res_predict,
+                    # 'type': res_predict,
                     'file_name' : new_filename
                 }
             }
