@@ -14,6 +14,13 @@
         {% block content %}
         <!-- Nội dung của mỗi trang sẽ được hiển thị ở đây -->
         {% endblock %}
+        <div id="loading">
+            <div class="lds-spinner">
+                {% for i in range(12) %}
+                    <div></div>
+                {% endfor %}
+            </div>
+        </div>
     </main>
     
 </body>
