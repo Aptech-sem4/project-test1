@@ -26,8 +26,8 @@ def process_image(filename):
     # processed_img = EfficientNetB0.preprocess_input(img_array)
 
     # Make prediction
-    predictions = "test"
-    # predictions = mymodel.predict(img_array)
+    # predictions = "test"
+    predictions = mymodel.predict(img_array)
     # Decode prediction
     # decoded_predictions = EfficientNetB0.decode_predictions(predictions)
     
