@@ -19,12 +19,7 @@ def process_image(filename):
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array /= 255
-    # img_array = image.img_to_array(img)
-    # img_array = np.expand_dims(img_array, axis=0)
-    # processed_img = EfficientNetB0.preprocess_input(img_array)
-
-    # Make prediction
-    # predictions = "test"
+    
     predictions = mymodel.predict(img_array)
 
     y_pred = np.argmax(predictions, axis=1)

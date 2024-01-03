@@ -16,6 +16,7 @@ def about():
 def help():
     return render_template('help.html')
 
+
 @index_bp.route('/tips', methods=['GET'])
 def tips():
     return render_template('tips.html')
