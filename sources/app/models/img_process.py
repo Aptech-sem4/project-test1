@@ -19,8 +19,6 @@ def process_image(filename):
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array /= 255
-    print('22222 vao img process')
-    print(img_array)
     # img_array = image.img_to_array(img)
     # img_array = np.expand_dims(img_array, axis=0)
     # processed_img = EfficientNetB0.preprocess_input(img_array)
@@ -28,11 +26,14 @@ def process_image(filename):
     # Make prediction
     # predictions = "test"
     predictions = mymodel.predict(img_array)
+
+    y_pred = np.argmax(predictions, axis=1)
+    # target_names = classes
     # Decode prediction
     # decoded_predictions = EfficientNetB0.decode_predictions(predictions)
     
     # Process decoded predictions to get the top result
     # top_prediction = decoded_predictions[0][0]  # Lấy kết quả dự đoán hàng đầu
-    print(predictions)
-    return predictions
+    print(y_pred)
+    return y_pred
     # pass
